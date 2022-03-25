@@ -1,0 +1,58 @@
+//apply plugin: "idea"
+buildscript {
+    repositories {
+        maven {
+            url 'https://maven.aliyun.com/repository/central'
+            name 'central'
+        }
+        maven {
+            url 'https://maven.aliyun.com/repository/jcenter'
+            name 'jcenter'
+        }
+        maven {
+            url 'https://maven.aliyun.com/repository/google'
+            name 'Google'
+        }
+
+
+//        maven {
+//            url 'https://maven.google.com/'
+//            name 'Google'
+//        }
+//        maven {
+//            url 'https://maven.aliyun.com/repository/central'
+//            name 'central'
+//        }
+
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.4'
+    }
+}
+allprojects {
+    apply plugin: "idea"
+
+    version = "1.0"
+    ext {
+        appName = "Brick"
+    }
+    
+    repositories {
+        maven {
+            url 'https://maven.aliyun.com/repository/central'
+            name 'central'
+        }
+        maven {
+            url 'https://maven.aliyun.com/repository/jcenter'
+            name 'jcenter'
+        }
+        maven {
+            url 'https://maven.aliyun.com/repository/google'
+            name 'Google'
+        }
+
+        flatDir {
+            dirs 'libs'  // 申明本地库
+        }
+    }
+}
