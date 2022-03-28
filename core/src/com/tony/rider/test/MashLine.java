@@ -41,7 +41,7 @@ public class MashLine extends Group {
     public MashLine() {
         setSize(720,1280);
         setTouchable(Touchable.disabled);
-        mRadius = 5.0f;
+        mRadius = 0.5f;
         mPoints = new Array<Vector2>();
         bDrawOutlines = true;
         bDrawConstruction = true;
@@ -52,7 +52,7 @@ public class MashLine extends Group {
         texture.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
         texture.setWrap(Texture.TextureWrap.Repeat, Texture.TextureWrap.Repeat);
         mPoints = new Array<>();
-        mThickness = texture.getHeight() / 2;
+        mThickness = texture.getHeight() / 10;
         vertexSet = new LinkedHashSet<>();
 
 
