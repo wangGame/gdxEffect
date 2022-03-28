@@ -8,6 +8,7 @@ import com.tony.rider.test.MaskTest;
 import com.tony.rider.test.MeshTest;
 import com.tony.rider.test.PixMapDemo;
 import com.tony.rider.test.PixmapTest;
+import com.tony.rider.test.PolyShowShape;
 
 public class LoadingScreen extends BaseScreen {
 
@@ -28,8 +29,13 @@ public class LoadingScreen extends BaseScreen {
 //        addActor(pixMapDemo);
 
 
-        MashLine line = new MashLine();
-        addActor(line);
+//        MashLine line = new MashLine();
+//        addActor(line);
+
+//        PolyShowShape showShape = new PolyShowShape();
+//        addActor(showShape);
+        MaskTest maskTest = new MaskTest();
+        addActor(maskTest);
     }
 
     @Override

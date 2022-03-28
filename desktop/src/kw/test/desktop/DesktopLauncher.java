@@ -2,6 +2,7 @@ package kw.test.desktop;
 
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
+import com.tony.rider.RiderGame;
 
 import wk.demo.block.Bziercurve;
 
@@ -18,6 +19,6 @@ public class DesktopLauncher {
         config.x = 600;
         config.y = 100;
 
-        new LwjglApplication(new Bziercurve(), config);
+        new LwjglApplication(new RiderGame(), config);
     }
 }

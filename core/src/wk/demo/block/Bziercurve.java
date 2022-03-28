@@ -37,7 +37,7 @@ public class Bziercurve extends Game {
 
     @Override
     public void render() {
-        Gdx.gl.glClearColor(1F, 1F, 1F, 1f);
+        Gdx.gl.glClearColor(0F, 0F, 0F, 1f);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
         super.render();
 
