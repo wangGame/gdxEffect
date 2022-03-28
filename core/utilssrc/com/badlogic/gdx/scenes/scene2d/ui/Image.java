@@ -243,4 +243,12 @@ public class Image extends Widget {
     public void setColor(Color color) {
         super.setColor(color);
     }
+
+    private Vector2 position = new Vector2();
+
+    public Vector2 getPosition() {
+        position.x = getX(Align.center);
+        position.y = getY(Align.center);
+        return position;
+    }
 }

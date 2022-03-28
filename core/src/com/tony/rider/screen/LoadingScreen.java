@@ -3,6 +3,7 @@ package com.tony.rider.screen;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.tony.rider.screen.base.BaseScreen;
 import com.tony.rider.test.EarserTest;
+import com.tony.rider.test.MashLine;
 import com.tony.rider.test.MaskTest;
 import com.tony.rider.test.MeshTest;
 import com.tony.rider.test.PixMapDemo;
@@ -23,9 +24,12 @@ public class LoadingScreen extends BaseScreen {
 //        PixmapTest test = new PixmapTest();
 //        stage.addActor(test);
 
-        PixMapDemo pixMapDemo = new PixMapDemo();
-        addActor(pixMapDemo);
+//        PixMapDemo pixMapDemo = new PixMapDemo();
+//        addActor(pixMapDemo);
 
+
+        MashLine line = new MashLine();
+        addActor(line);
     }
 
     @Override
