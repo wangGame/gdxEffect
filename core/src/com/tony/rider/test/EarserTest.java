@@ -24,7 +24,7 @@ public class EarserTest extends Group {
     private TextureRegion region ;
 
     public EarserTest(Stage stage) {
-        setSize(720,1280);
+        setSize(1080,1920);
 //        bg = new Image(new Texture("smiley_color.png"));
         //笔刷是一张20*20的透明图片
         brush = new Image(new Texture("cirwhite.png"));
@@ -43,10 +43,10 @@ public class EarserTest extends Group {
             public void touchDragged(InputEvent event, float x, float y, int pointer) {
                 super.touchDragged(event, x, y, pointer);
                 System.out.println("-------------");
-                brush.setPosition(event.getStageX(),event.getStageY());
+                brush.setPosition(event.getStageX()*2-brush.getHeight()/2,event.getStageY()*2-brush.getHeight()/2);
             }
         });
-        addActor(bg);
+
         addActor(brush);
         addActor(cachu);
     }
