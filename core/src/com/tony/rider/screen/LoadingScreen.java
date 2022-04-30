@@ -4,6 +4,10 @@ import com.crashinvaders.vfx.effects.BloomEffect;
 import com.tony.rider.blend.BloomGroup;
 import com.tony.rider.blend.GaussianGroup;
 import com.tony.rider.screen.base.BaseScreen;
+import com.tony.rider.test.EarserTest;
+import com.tony.rider.test.MashLine;
+
+import wk.demo.block.screen.load.GameView;
 
 public class LoadingScreen extends BaseScreen {
 
@@ -14,8 +18,16 @@ public class LoadingScreen extends BaseScreen {
     @Override
     public void show() {
         super.show();
+
+        EarserTest test = new EarserTest(stage);
+        stage.addActor(test);
+
+//        GameView gameView = new GameView();
+//        stage.addActor(gameView);
+
 //        EarserTest test = new EarserTest(stage);
 //        stage.addActor(test);
+
 //        MaskTest maskTest = new MaskTest();
 //        PixmapTest test = new PixmapTest();
 //        stage.addActor(test);
@@ -35,9 +47,9 @@ public class LoadingScreen extends BaseScreen {
 //        GaussianGroup group = new GaussianGroup();
 //        addActor(group);
 
-
-        BloomGroup group = new BloomGroup();
-        addActor(group);
+//
+//        BloomGroup group = new BloomGroup();
+//        addActor(group);
 
 
 //        VfxWidgetGroup vfxGroup = new VfxWidgetGroup(Pixmap.Format.RGB888);

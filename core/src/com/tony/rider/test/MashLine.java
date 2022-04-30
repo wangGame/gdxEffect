@@ -260,7 +260,6 @@ public class MashLine extends Group {
             curY = start.y + dirY * curLen;
             renderer.rectLine(curX, curY, curX + dirX * dashes.x, curY + dirY * dashes.x, width);
             curLen += dashes.x + dashes.y;
-
         }
     }
 

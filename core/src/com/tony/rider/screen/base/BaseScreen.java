@@ -47,6 +47,7 @@ public class BaseScreen implements Screen {
 
     @Override
     public void show() {
+        System.out.println("------show ");
         initTouch();
         initRootView();
     }
@@ -76,21 +77,22 @@ public class BaseScreen implements Screen {
     public void render(float delta) {
         stage.act();
         stage.draw();
+        System.out.println("---------------------render");
     }
 
     @Override
     public void resize(int width, int height) {
-
+        System.out.println("---------------resize");
     }
 
     @Override
     public void pause() {
-
+        System.out.println("---------------pause");
     }
 
     @Override
     public void resume() {
-
+        System.out.println("---------------resume");
     }
 
     @Override

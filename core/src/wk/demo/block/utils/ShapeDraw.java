@@ -14,7 +14,7 @@ public class ShapeDraw extends Actor {
     ShapeRenderer sr;
     private Array<Vector2> array;
     public ShapeDraw() {
-        this.sr = Constant.sr;
+        this.sr =new ShapeRenderer();
     }
 
     public void setArray(Array<Vector2> array) {
@@ -34,7 +34,7 @@ public class ShapeDraw extends Actor {
         batch.end();
         sr.setProjectionMatrix(batch.getProjectionMatrix());
         sr.setTransformMatrix(batch.getTransformMatrix());
-        Gdx.gl20.glLineWidth(1 / Constant.camera.zoom);
+//        Gdx.gl20.glLineWidth(1 / Constant.camera.zoom);
         sr.begin(ShapeRenderer.ShapeType.Line);
         for (Vector2 vector2 : array) {
 //            sr.circle(vector2.x, vector2.y, 10);
@@ -53,28 +53,3 @@ public class ShapeDraw extends Actor {
         batch.begin();
     }
 }
-
-//    @Override
-//    public void create() {
-//        w = Gdx.graphics.getWidth();
-//        batch = new SpriteBatch();
-//        pixmap = new Pixmap(2 * w, 2 * w, Pixmap.Format.RGBA8888);
-//        pixmap.setColor(Color.BLACK);
-//
-//        pixmap.drawCircle(w, w, w);
-//        texture = new Texture(pixmap);
-//        pixmap.dispose();
-//
-//        sprite = new Sprite(texture);
-//    }
-//
-//    @Override
-//    public void render() {
-//        Gdx.gl.glClearColor(1, 1, 1, 1);
-//        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-//
-//        batch.begin();
-//        sprite.setPosition(-w / 2, -w);
-//        sprite.draw(batch);
-//        batch.end();
-//    }

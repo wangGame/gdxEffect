@@ -147,7 +147,7 @@ public class GameView extends Group {
             image.addListener(imgaeListener);
             array.add(image);
         }
-       jisuan(controlPoint);
+        jisuan(controlPoint);
         shapeDraw = new ShapeDraw();
         addActor(shapeDraw);
         shapeDraw.setArray(array1);

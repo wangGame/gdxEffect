@@ -1,0 +1,137 @@
+# LibGdx效果
+
+libGdx效果
+
+### 橡皮擦除
+
+```java
+public class EarserTest extends Group {
+    private Image bg = null;
+    private Image brush = null;
+    private Image cachu = null;
+    private FrameBuffer frameBuffer = null;
+    private TextureRegion region ;
+
+    public EarserTest(Stage stage) {
+        setSize(1080,1920);
+//        bg = new Image(new Texture("smiley_color.png"));
+        //笔刷是一张20*20的透明图片
+        brush = new Image(new Texture("cirwhite.png"));
+        //需要擦除的图片
+        cachu = new Image(new Texture(Gdx.files.internal("BG.png")));
+
+        //framebuffer
+        frameBuffer = new FrameBuffer(Pixmap.Format.RGBA8888, Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), true);
+
+        region = new TextureRegion(frameBuffer.getColorBufferTexture());
+        region.flip(false,true);
+        //先把被擦除的图片渲染进frameBuffer
+
+        stage.addListener(new ClickListener(){
+            @Override
+            public void touchDragged(InputEvent event, float x, float y, int pointer) {
+                super.touchDragged(event, x, y, pointer);
+                System.out.println("-------------");
+                brush.setPosition(event.getStageX()*2-brush.getHeight()/2,event.getStageY()*2-brush.getHeight()/2);
+            }
+        });
+
+        addActor(brush);
+        addActor(cachu);
+    }
+
+    private boolean isDraw;
+    public void drawFrame(Batch batch){
+        if (isDraw) {
+            return;
+        }
+        isDraw = true;
+        frameBuffer.begin();
+        batch.flush();
+        cachu.draw(batch,1);
+        batch.flush();
+        frameBuffer.end();
+    }
+
+
+    @Override
+    public void draw(Batch batch, float parentAlpha) {
+        drawFrame(batch);
+        drawFrameBrush(batch);
+        batch.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
+        batch.draw(region, 0f, 0f);
+    }
+
+    private void drawFrameBrush(Batch batch) {
+        frameBuffer.begin();
+        batch.flush();
+        batch.setBlendFunction(GL20.GL_ZERO, GL20.GL_ONE_MINUS_SRC_ALPHA);
+        batch.enableBlending();
+        brush.draw(batch,1);
+        batch.flush();
+
+        frameBuffer.end();
+    }
+}
+```
+
+
+
+<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220329141922969.png" alt="image-20220329141922969" style="zoom:50%;" />
+
+
+
+
+
+
+
+
+
+
+
+### 使用Mesh绘制线
+
+
+
+效果：通过拉动贝塞尔曲线上的点控制线的弯曲程度
+
+![image-20220329143120855](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20220329143120855.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

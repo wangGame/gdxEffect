@@ -9,10 +9,6 @@ import com.badlogic.gdx.graphics.PixmapIO;
 
 import java.io.File;
 
-/**
- * Created by Doodle on 2020/7/20.
- */
-
 public class DealPicture extends Game {
     private File file = new File("");
     private static final String rootPath = "desktop" + File.separator + "src";

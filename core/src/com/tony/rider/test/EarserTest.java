@@ -83,16 +83,4 @@ public class EarserTest extends Group {
 
         frameBuffer.end();
     }
-
-//    boolean touchDragged(int screenX, int screenY,int pointer) {
-//        curr.set(screenX, screenY);
-//        frameBuffer.begin();
-//        batch.begin();
-//        batch.setBlendFunction(GL20.GL_ZERO, GL20.GL_ONE_MINUS_SRC_ALPHA);
-//        batch.enableBlending();
-//        batch.draw(brush, curr.x, curr.y);
-//        batch.end();
-//        frameBuffer.end();
-//        return false;
-//    }
 }

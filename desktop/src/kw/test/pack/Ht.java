@@ -4,6 +4,9 @@ import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.tools.texturepacker.TexturePacker;
 
+/**
+ * 合图
+ */
 public class Ht {
     public static void main(String[] args) {
         texturePack();
