@@ -1,13 +1,14 @@
 package com.tony.rider.screen;
 
-import com.crashinvaders.vfx.effects.BloomEffect;
-import com.tony.rider.blend.BloomGroup;
-import com.tony.rider.blend.GaussianGroup;
-import com.tony.rider.screen.base.BaseScreen;
-import com.tony.rider.test.EarserTest;
-import com.tony.rider.test.MashLine;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.utils.Align;
 
-import wk.demo.block.screen.load.GameView;
+import com.tony.rider.Constant;
+import com.tony.rider.actor.CommonButton;
+
+import com.tony.rider.screen.base.BaseScreen;
+
+
 
 public class LoadingScreen extends BaseScreen {
 
@@ -18,9 +19,19 @@ public class LoadingScreen extends BaseScreen {
     @Override
     public void show() {
         super.show();
+        addActor(new Table(){{
+            for (int i = 1; i <= 23; i++) {
+                CommonButton commonButton = new CommonButton("example ",i);
+                add(commonButton);
+                if (i%3==0)row();
+            }
+            pack();
+            setPosition( Constant.GAMEWIDTH/2,Constant.GAMEHIGHT/2, Align.center);
+        }});
 
-        EarserTest test = new EarserTest(stage);
-        stage.addActor(test);
+
+
+
 
 //        GameView gameView = new GameView();
 //        stage.addActor(gameView);

@@ -5,6 +5,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.CpuPolygonSpriteBatch;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.esotericsoftware.spine.SkeletonRenderer;
@@ -16,6 +17,7 @@ public class RiderGame extends Game {
     private ExtendViewport stageViewport;
     private SkeletonRenderer renderer;
     private static RiderGame riderGame;
+    private BitmapFont font;
 
     public RiderGame() {
 
@@ -25,7 +27,16 @@ public class RiderGame extends Game {
     public void create() {
         initInstance();
         initViewport();
+        loadRsource();
         loadingView();
+    }
+
+    private void loadRsource() {
+        font = new BitmapFont(Gdx.files.internal("swissck.fnt"));
+    }
+
+    public BitmapFont getFont() {
+        return font;
     }
 
     private void loadingView() {

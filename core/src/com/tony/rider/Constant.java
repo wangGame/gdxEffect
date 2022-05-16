@@ -1,6 +1,6 @@
 package com.tony.rider;
 
-class Constant {
+public class Constant {
 
     public static final float WIDTH = 720;
     public static final float HIGHT = 1280;

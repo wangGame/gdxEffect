@@ -1,6 +1,6 @@
 public class App {
     public static void main(String[] args) {
-        System.out.println("---------------------");
+
 
         try {
             System.out.println("dddd");
@@ -9,6 +9,5 @@ public class App {
             System.out.println("catch");
         }
 
-        System.out.println("---------------------");
     }
 }

@@ -5,14 +5,24 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.Group;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 
 public class MaskTest extends Group {
     private Image img;
     private Image mask;
+    private float base = 0;
     public MaskTest(){
         mask = new Image(new Texture("demo.png"));
         img = new Image(new Texture(Gdx.files.internal("sprite.png")));
+        img.addAction(Actions.forever(
+                Actions.sequence(Actions.moveTo(10,0,0.3f),Actions.moveTo(0,0,0))));
+    }
+
+    @Override
+    public void act(float delta) {
+        super.act(delta);
+
     }
 
     @Override
