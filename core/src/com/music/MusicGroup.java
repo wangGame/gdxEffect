@@ -17,32 +17,44 @@ public class MusicGroup extends Group {
     public MusicGroup(){
         Music music = Gdx.audio.newMusic(Gdx.files.internal("10134.mp3"));
 
-        MusicAction addSound = new MusicAction(music);
+        MusicVolumonAction addSound = new MusicVolumonAction(music);
         addSound.setName("1");
         music.play();
-        addSound.setStart(0F);
-        addSound.setEnd(1);
-        addSound.setDuration(2);
+        addSound.setStart(1F);
+        addSound.setEnd(0);
+        addSound.setDuration(10);
 
-        MusicAction minusSound = new MusicAction(music);
+        MusicVolumonAction minusSound = new MusicVolumonAction(music);
 //        music.play();
         minusSound.setStart(0F);
         minusSound.setName("2");
         minusSound.setEnd(1);
         minusSound.setReverse(true);
-        minusSound.setDuration(2);
+        minusSound.setDuration(10);
+
+
+        MusicVolumonAction midSound = new MusicVolumonAction(music);
+//        music.play();
+        midSound.setStart(1F);
+        midSound.setName("3");
+        midSound.setEnd(1);
+        midSound.setReverse(true);
+        midSound.setDuration(10);
+
+
 //        actions.add(action);
 //        RepeatAction forever = Actions.forever();
 
-        Action as = Actions.sequence(
-                addSound, minusSound
+        Action as = Actions.musicSequenceAction(
+                addSound,midSound ,minusSound
         );
         actions.add(as);
         CommonButton button = new CommonButton("button", -1, new CommonButton.MyRunnable() {
             @Override
             public void run(int index) {
                 for (Action action1 : actions) {
-                    action1.reset();
+                    System.out.println("reset");
+                    action1.restart();
                 }
             }
         });

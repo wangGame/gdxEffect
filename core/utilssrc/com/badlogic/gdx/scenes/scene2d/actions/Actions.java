@@ -25,6 +25,7 @@ import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.utils.Pool;
 import com.badlogic.gdx.utils.Pools;
+import com.music.MusicSequenceAction;
 
 /** Static convenience methods for using pooled actions, intended for static import.
  * @author Nathan Sweet */
@@ -347,6 +348,15 @@ public class Actions {
 		action.addAction(action2);
 		return action;
 	}
+
+	static public MusicSequenceAction musicSequenceAction (Action ... actions) {
+		MusicSequenceAction action = action(MusicSequenceAction.class);
+		for (Action action1 : actions) {
+			action.addAction(action1);
+		}
+		return action;
+	}
+
 
 	static public SequenceAction sequence (Action action1, Action action2, Action action3) {
 		SequenceAction action = action(SequenceAction.class);
