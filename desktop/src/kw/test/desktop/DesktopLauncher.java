@@ -14,8 +14,8 @@ public class DesktopLauncher {
         config.x = 600;
         config.y = 100;
 
-//        new LwjglApplication(new RiderGame(), config);
-        new LwjglApplication(new SwiperImproved(), config);
+        new LwjglApplication(new RiderGame(), config);
+//        new LwjglApplication(new SwiperImproved(), config);
 
     }
 }

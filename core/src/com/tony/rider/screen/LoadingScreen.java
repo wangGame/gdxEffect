@@ -1,13 +1,17 @@
 package com.tony.rider.screen;
 
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.Align;
 
 import com.tony.rider.Constant;
+import com.tony.rider.RiderGame;
 import com.tony.rider.actor.CommonButton;
 
 import com.tony.rider.screen.base.BaseScreen;
-
+import com.tony.rider.statustion.Statustion;
 
 
 public class LoadingScreen extends BaseScreen {
@@ -21,7 +25,13 @@ public class LoadingScreen extends BaseScreen {
         super.show();
         addActor(new Table(){{
             for (int i = 1; i <= 23; i++) {
-                CommonButton commonButton = new CommonButton("example ",i);
+                CommonButton commonButton = new CommonButton("example ", i, new CommonButton.MyRunnable() {
+                    @Override
+                    public void run(int idnex) {
+                        Statustion.currentstatus = idnex;
+                        RiderGame.instence().setScreen(new MainScreen());
+                    }
+                });
                 add(commonButton);
                 if (i%3==0)row();
             }
@@ -31,6 +41,18 @@ public class LoadingScreen extends BaseScreen {
 
 
 
+//        image.addAction(
+//                Actions.sequence(
+//                    Actions.repeat(10,Actions.rotateBy(1000,5F)),
+//                        Actions.repeat(10,Actions.rotateBy(1000,4F)),
+//                        Actions.repeat(10,Actions.rotateBy(1000,3F)),
+//                        Actions.repeat(10,Actions.rotateBy(1000,2F)),
+//                        Actions.repeat(10,Actions.rotateBy(1000,1F)),
+//                        Actions.repeat(10,Actions.rotateBy(1000,2F)),
+//                        Actions.repeat(10,Actions.rotateBy(1000,3F)),
+//                        Actions.repeat(10,Actions.rotateBy(1000,4F))
+//
+//                ));
 
 
 //        GameView gameView = new GameView();

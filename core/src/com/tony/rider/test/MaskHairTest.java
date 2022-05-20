@@ -29,9 +29,10 @@ public class MaskHairTest extends Group {
         texture = new Texture(maskPixmap);
         texture.setFilter(Texture.TextureFilter.Linear,Texture.TextureFilter.Linear);
 
-        img = new Image(new Texture(Gdx.files.internal("")));
+        img = new Image(new Texture(Gdx.files.internal("demo.png")));
         addActor(img);
 
+        mask = new Texture("sprite.png");
 
         drawablePixmap = new DrawablePixmap(mask);
 

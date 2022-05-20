@@ -1,12 +1,16 @@
 package com.tony.rider.screen;
 
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.music.MusicGroup;
 import com.tony.rider.RiderGame;
 import com.tony.rider.screen.base.BaseScreen;
 import com.tony.rider.statustion.Statustion;
 import com.tony.rider.test.EarserTest;
+import com.tony.rider.test.MashLine;
+import com.tony.rider.test.MaskHairTest;
 import com.tony.rider.test.MaskTest;
 import com.tony.rider.test.PixmapTest;
+import com.zhuanpan.ImageZhuan;
 
 public class MainScreen extends BaseScreen {
     private int status=-1;
@@ -29,6 +33,15 @@ public class MainScreen extends BaseScreen {
             }else if (status == Statustion.three){
                 MaskTest maskTest = new MaskTest();
                 stage.addActor(maskTest);
+            }else if (status == Statustion.four){
+                MaskHairTest mashLine = new MaskHairTest();
+                stage.addActor(mashLine);
+            }else if (status == Statustion.five){
+                ImageZhuan zhuan = new ImageZhuan();
+                stage.addActor(zhuan);
+            }else if (status == Statustion.six){
+                MusicGroup group = new MusicGroup();
+                stage.addActor(group);
             }
         }
     }

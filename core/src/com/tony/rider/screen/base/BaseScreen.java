@@ -77,7 +77,7 @@ public class BaseScreen implements Screen {
     public void render(float delta) {
         stage.act();
         stage.draw();
-        System.out.println("---------------------render");
+
     }
 
     @Override

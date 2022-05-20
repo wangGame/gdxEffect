@@ -51,7 +51,6 @@ public class InputListener implements EventListener {
 		}
 
 		event.toCoordinates(event.getListenerActor(), tmpCoords);
-
 		switch (event.getType()) {
 		case touchDown:
 			return touchDown(event, tmpCoords.x, tmpCoords.y, event.getPointer(), event.getButton());

@@ -15,22 +15,23 @@ public class MaskTest extends Group {
     public MaskTest(){
         mask = new Image(new Texture("demo.png"));
         img = new Image(new Texture(Gdx.files.internal("sprite.png")));
-        img.addAction(Actions.forever(
-                Actions.sequence(Actions.moveTo(10,0,0.3f),Actions.moveTo(0,0,0))));
+        mask.addAction(Actions.forever(
+                Actions.sequence(Actions.moveTo(80,0,19f),Actions.moveTo(0,0,0))));
+        addActor(mask);
     }
 
     @Override
     public void act(float delta) {
         super.act(delta);
-
     }
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
-        super.draw(batch, parentAlpha);
         drawAlphaMask(batch);
         //画前景色
-        drawForeground(batch, 0, 0, (int) mask.getWidth()/2, (int)mask.getHeight()/2);
+        drawForeground(batch, 0, 0,
+                (int) mask.getWidth()/2,
+                (int)mask.getHeight()/2);
     }
 
     private void drawForeground(Batch batchPara, int clipX, int clipY ,int clipWidth ,int clipHeight) {

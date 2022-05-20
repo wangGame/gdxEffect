@@ -18,7 +18,7 @@ public class CommonButton extends Group {
     private Image buttonBg;
     private int status;
 
-    public CommonButton(String v, int i){
+    public CommonButton(String v, int i,MyRunnable runnable){
         this.status = i;
         buttonBg = new Image(new NinePatch(new Texture("white_squ.png"),20,20,20,20));
         addActor(buttonBg);
@@ -37,10 +37,15 @@ public class CommonButton extends Group {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
-                Statustion.currentstatus = status;
-                RiderGame.instence().setScreen(new MainScreen());
+                if (runnable!=null) {
+                    runnable.run(status);
+                }
+
             }
         });
     }
 
+    public interface MyRunnable{
+        void run(int index);
+    }
 }

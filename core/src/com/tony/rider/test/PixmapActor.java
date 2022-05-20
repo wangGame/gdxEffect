@@ -14,17 +14,12 @@ import com.badlogic.gdx.scenes.scene2d.Group;
 public class PixmapActor  extends Actor {
 
     private Pixmap pixmap;
-
     private Texture texture;
     private TextureRegion region;
-
     public final Color color = new Color();
-    public float radiusFactor = 1f;
-
     private boolean flipX,flipY;
 
-    public PixmapActor(Pixmap pixmap)
-    {
+    public PixmapActor(Pixmap pixmap) {
         this.pixmap = pixmap;
         texture = new Texture(pixmap);
         this.texture.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
@@ -56,6 +51,7 @@ public class PixmapActor  extends Actor {
             pixmap.fillCircle(x, y, radius);
             pixmap.setBlending(blending);
 
+            //需要给texture重新的设置数据
             Gdx.gl.glBindTexture(GL20.GL_TEXTURE_2D, texture.getTextureObjectHandle());
             Gdx.gl.glPixelStorei(GL20.GL_UNPACK_ALIGNMENT, 1);
             Gdx.gl.glTexImage2D(GL20.GL_TEXTURE_2D, 0, pixmap.getGLInternalFormat(), pixmap.getWidth(), pixmap.getHeight(), 0,

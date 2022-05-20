@@ -54,11 +54,6 @@ public class MashLine extends Group {
         mPoints = new Array<>();
         mThickness = texture.getHeight() / 10;
         vertexSet = new LinkedHashSet<>();
-
-
-
-
-
         addListener(new ClickListener() {
             Vector2 tmp = new Vector2();
 
