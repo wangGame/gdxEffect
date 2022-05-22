@@ -45,6 +45,19 @@ public class MusicVolumonAction extends MusicTemporalAction {
         this.music = music;
     }
 
+    public MusicVolumonAction(Music music,
+                              String name,
+                              float start,
+                              float end,
+                              float duration
+                              ){
+        this.music = music;
+        this.name = name;
+        this.start = start;
+        this.end = end;
+        setDuration(duration);
+    }
+
     @Override
     public void reset() {
         super.reset();
@@ -54,6 +67,6 @@ public class MusicVolumonAction extends MusicTemporalAction {
     protected void update(float percent) {
         float v = (start+(end - start)* percent) ;
         music.setVolume(v);
-        System.out.println(v);
+        System.out.println(start+"---"+v);
     }
 }

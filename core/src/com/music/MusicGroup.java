@@ -20,24 +20,23 @@ public class MusicGroup extends Group {
         MusicVolumonAction addSound = new MusicVolumonAction(music);
         addSound.setName("1");
         music.play();
-        addSound.setStart(1F);
-        addSound.setEnd(0);
+        addSound.setStart(0F);
+        addSound.setEnd(1);
         addSound.setDuration(10);
 
         MusicVolumonAction minusSound = new MusicVolumonAction(music);
 //        music.play();
-        minusSound.setStart(0F);
+        minusSound.setStart(1F);
         minusSound.setName("2");
-        minusSound.setEnd(1);
-        minusSound.setReverse(true);
+        minusSound.setEnd(0);
         minusSound.setDuration(10);
 
 
         MusicVolumonAction midSound = new MusicVolumonAction(music);
 //        music.play();
-        midSound.setStart(1F);
+        midSound.setStart(0F);
         midSound.setName("3");
-        midSound.setEnd(1);
+        midSound.setEnd(0);
         midSound.setReverse(true);
         midSound.setDuration(10);
 
@@ -46,7 +45,7 @@ public class MusicGroup extends Group {
 //        RepeatAction forever = Actions.forever();
 
         Action as = Actions.musicSequenceAction(
-                addSound,midSound ,minusSound
+                minusSound,midSound ,addSound
         );
         actions.add(as);
         CommonButton button = new CommonButton("button", -1, new CommonButton.MyRunnable() {
