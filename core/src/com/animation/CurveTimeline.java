@@ -1,14 +1,16 @@
-package wk.demo.block;
+package com.animation;
 
-import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.MathUtils;
 
-public class BseInterpolation extends Interpolation {
+public class CurveTimeline {
     private float[] curves = new float[18];
+    float cx1;
+    float cy1;
+    float cx2;
+    float cy2;
 
-    @Override
-    public float apply(float a) {
-        return getCurvePercent(a);
+    public CurveTimeline(){
+
     }
 
     public void setCurve (float cx1, float cy1, float cx2, float cy2) {
@@ -32,9 +34,6 @@ public class BseInterpolation extends Interpolation {
             y += dfy;
         }
     }
-
-
-//
 //
     public float getCurvePercent (float percent) {
         percent = MathUtils.clamp(percent, 0, 1);
@@ -53,4 +52,14 @@ public class BseInterpolation extends Interpolation {
         float v = y + (1 - y) * (percent - x) / (1 - x);
         return v;
     }
-}
+
+    @Override
+        public String toString() {
+            return "BseInterpolation{" +
+                    " " + cx1 + "F"+
+                    "," + cy1 +"F"+
+                    "," + cx2 +"F"+
+                    "," + cy2 +"F"+
+                    '}';
+        }
+    }

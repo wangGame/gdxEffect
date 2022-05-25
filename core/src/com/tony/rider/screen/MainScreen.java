@@ -1,7 +1,10 @@
 package com.tony.rider.screen;
 
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.blend.BlendTest;
+import com.framebuffer.FbDemo;
 import com.music.MusicGroup;
+import com.screenanima.App;
 import com.tony.rider.RiderGame;
 import com.tony.rider.screen.base.BaseScreen;
 import com.tony.rider.statustion.Statustion;
@@ -42,6 +45,17 @@ public class MainScreen extends BaseScreen {
             }else if (status == Statustion.six){
                 MusicGroup group = new MusicGroup();
                 stage.addActor(group);
+            }else if (status == Statustion.seven){
+                BlendTest test = new BlendTest();
+                stage.addActor(test);
+            }else if (status == Statustion.eight){
+                App app = new App();
+                stage.addActor(app);
+            }else if (status == Statustion.nine){
+                FbDemo fbDemo = new FbDemo();
+                stage.addActor(fbDemo);
+            }else if (status == Statustion.ten){
+
             }
         }
     }
@@ -49,6 +63,7 @@ public class MainScreen extends BaseScreen {
     public void back(){
         if (back) {
             back = false;
+            stage.clear();
             RiderGame.instence().setScreen(new LoadingScreen());
         }
     }
