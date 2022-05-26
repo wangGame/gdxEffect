@@ -15,4 +15,5 @@ public class Statustion {
     public static int eight = 8;
     public static int nine = 9;
     public static int ten = 10;
+    public static int eleven = 11;
 }

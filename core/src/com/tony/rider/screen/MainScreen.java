@@ -2,6 +2,7 @@ package com.tony.rider.screen;
 
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.blend.BlendTest;
+import com.colorblack.Demo;
 import com.framebuffer.FbDemo;
 import com.music.MusicGroup;
 import com.screenanima.App;
@@ -55,7 +56,11 @@ public class MainScreen extends BaseScreen {
                 FbDemo fbDemo = new FbDemo();
                 stage.addActor(fbDemo);
             }else if (status == Statustion.ten){
-
+                com.i18Boundle.App app = new com.i18Boundle.App();
+                stage.addActor(app);
+            }else if (status == Statustion.eleven){
+                Demo demo = new Demo();
+                stage.addActor(demo);
             }
         }
     }
