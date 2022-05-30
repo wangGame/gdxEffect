@@ -24,6 +24,8 @@ public class MusicGroup extends Group {
         addSound.setEnd(1);
         addSound.setDuration(10);
 
+
+
         MusicVolumonAction minusSound = new MusicVolumonAction(music);
 //        music.play();
         minusSound.setStart(1F);
