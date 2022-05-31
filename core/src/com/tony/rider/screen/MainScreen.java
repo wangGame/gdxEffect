@@ -6,9 +6,12 @@ import com.colorblack.Demo;
 import com.framebuffer.FbDemo;
 import com.music.MusicGroup;
 import com.screenanima.App;
+import com.sprite.DrawSprite;
+import com.test.shaderstest.ShadersTestMain;
 import com.tony.rider.RiderGame;
 import com.tony.rider.screen.base.BaseScreen;
 import com.tony.rider.statustion.Statustion;
+import com.tony.rider.test.CirDemo;
 import com.tony.rider.test.EarserTest;
 import com.tony.rider.test.MashLine;
 import com.tony.rider.test.MaskHairTest;
@@ -61,6 +64,15 @@ public class MainScreen extends BaseScreen {
             }else if (status == Statustion.eleven){
                 Demo demo = new Demo();
                 stage.addActor(demo);
+            }else if (status == Statustion.twen){
+                ShadersTestMain main = new ShadersTestMain();
+                stage.addActor(main);
+            }else if (status == Statustion.thired){
+                DrawSprite sprite = new DrawSprite();
+                stage.addActor(sprite);
+            }else if (status == Statustion.fourteen){
+                CirDemo cirDemo = new CirDemo();
+                stage.addActor(cirDemo);
             }
         }
     }

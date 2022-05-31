@@ -17,8 +17,8 @@ public class DesktopLauncher {
         config.x = 600;
         config.y = 100;
 //        new LwjglApplication(new RoboRally(), config);
-        new LwjglApplication(new ShadersTestMain(),config);
-//        new LwjglApplication(new RiderGame(), config);
+//        new LwjglApplication(new SNhadersTestMain(),config);
+        new LwjglApplication(new RiderGame(), config);
 //        new LwjglApplication(new SwiperImproved(), config);
 
     }

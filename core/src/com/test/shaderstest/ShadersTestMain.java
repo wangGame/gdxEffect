@@ -4,21 +4,21 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
+import com.badlogic.gdx.scenes.scene2d.Group;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 
-public class ShadersTestMain extends ApplicationAdapter {
-	private SpriteBatch batch;
+public class ShadersTestMain extends Group {
     private Texture colorTable;
     private Texture imgPixelGuy;
     private Sprite spritePixelGuy, spritePixelGuy2, spritePixelGuy3;
     private ShaderProgram shader;
     private String shaderVertIndexPalette, shaderFragIndexPalette;
-
-    @Override
-    public void create () {
-    	batch = new SpriteBatch();
+    private Image c ;
+    public ShadersTestMain() {
         colorTable =  new Texture("colortable.png"); // Texture with 6x6 pixels, each row is a palette (total: 6 palettes of 6 colors each)
         imgPixelGuy = new Texture("pixel_guy.png"); // Texture for our sprite
         // We'll apply our shader (simulating several palettes) to the following Sprites
@@ -29,7 +29,7 @@ public class ShadersTestMain extends ApplicationAdapter {
         spritePixelGuy.setPosition(24, 50);
         spritePixelGuy2.setPosition(224, 50);
         spritePixelGuy3.setPosition(424, 50);
-
+        c = new Image(spritePixelGuy);
         // Apply one of the palettes to the first sprite.
         setPalette(spritePixelGuy, 0); // setPalette (Sprite sprite, int paletteNumber) 
         // Another option would be calling batch.setColor(paletteIndex,0,0,0); before calling batch.draw for each one of the sprites.
@@ -45,36 +45,38 @@ public class ShadersTestMain extends ApplicationAdapter {
         ShaderProgram.pedantic = false; // important since we aren't using some uniforms and attributes that SpriteBatch expects
 
         shader = new ShaderProgram(shaderVertIndexPalette, shaderFragIndexPalette);
-        if(!shader.isCompiled()) {
-            System.out.println("Problem compiling shader :(");
-        }
-        else{
-            batch.setShader(shader);
-
-            // Bind and set the uniform for the colortable texture
-            colorTable.bind(1);
-            shader.begin();
-            shader.setUniformi("colorTable", 1);
-            shader.end();
-        }
     }
 
     @Override
-    public void render () {
-        Gdx.gl.glClearColor(0.3f, 0.3f, 0.3f, 1);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
+    public void draw(Batch batch, float parentAlpha) {
+//        super.draw(batch, parentAlpha);
+//        if(!shader.isCompiled()) {
+//            System.out.println("Problem compiling shader :(");
+//        }
+//        else{
+//            batch.setShader(shader);
+//
+//            // Bind and set the uniform for the colortable texture
+//            colorTable.bind(1);
+//            shader.begin();
+//            shader.setUniformi("colorTable", 1);
+//            shader.end();
+//        }
         //Must return active texture unit to default of 0 before batch.end 
         //because SpriteBatch does not automatically do this. It will bind the
         //sprite's texture to whatever the current active unit is, and assumes
-        //the active unit is 0
-        Gdx.gl.glActiveTexture(GL20.GL_TEXTURE0); 
 
-        batch.begin(); //shader.begin is called internally by this line
+        //the active unit is 0
+        batch.flush();
+//        Gdx.gl.glActiveTexture(GL20.GL_TEXTURE0);
+
+        c.draw(batch,1);
+//        batch.begin(); //shader.begin is called internally by this line
         spritePixelGuy.draw(batch);
         spritePixelGuy2.draw(batch);
         spritePixelGuy3.draw(batch);
-        batch.end(); //shader.end is called internally by this line
+//        batch.end(); //shader.end is called internally by this line
+        batch.flush();
     }
 
     private void setPalette (Sprite sprite, int paletteNumber){
