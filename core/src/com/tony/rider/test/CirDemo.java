@@ -26,6 +26,7 @@ public class CirDemo extends Group {
         int height = pixmap.getHeight();
         int min = Math.min(width, height);
         Pixmap.Blending blending = pixmap.getBlending();
+
         pixmap.setBlending(Pixmap.Blending.None);
         for (int i = 0; i < width; i++) {
             for (int i1 = 0; i1 < height; i1++) {

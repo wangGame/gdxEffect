@@ -33,4 +33,5 @@ dependencies {
     compile name:'gdx-tools'
     compile "com.badlogicgames.gdx:gdx-box2d-platform:1.9.8:natives-desktop"
     implementation 'junit:junit:4.12'
+    implementation "com.badlogicgames.gdx:gdx-freetype-platform:1.9.8:natives-desktop"
 }

@@ -1,9 +1,13 @@
 package com.tony.rider.screen;
 
+import com.badlogic.gdx.math.Path;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.blend.BlendTest;
 import com.colorblack.Demo;
+import com.demo.QuaternionDemo;
 import com.framebuffer.FbDemo;
+import com.freepath.PathGroup;
+import com.label.LabelDemo;
 import com.music.MusicGroup;
 import com.screenanima.App;
 import com.sprite.DrawSprite;
@@ -17,6 +21,7 @@ import com.tony.rider.test.MashLine;
 import com.tony.rider.test.MaskHairTest;
 import com.tony.rider.test.MaskTest;
 import com.tony.rider.test.PixmapTest;
+import com.ttf.TTFDemo;
 import com.zhuanpan.ImageZhuan;
 
 public class MainScreen extends BaseScreen {
@@ -73,6 +78,18 @@ public class MainScreen extends BaseScreen {
             }else if (status == Statustion.fourteen){
                 CirDemo cirDemo = new CirDemo();
                 stage.addActor(cirDemo);
+            }else if (status == Statustion.fiveteen){
+                LabelDemo labelDemo = new LabelDemo();
+                stage.addActor(labelDemo);
+            }else if (status == Statustion.sixTeen){
+                QuaternionDemo app = new QuaternionDemo();
+                stage.addActor(app);
+            }else if (status == Statustion.seventeen){
+                TTFDemo ttfDemo = new TTFDemo();
+                stage.addActor(ttfDemo);
+            }else if (status == Statustion.eightteen){
+                PathGroup group = new PathGroup();
+                stage.addActor(group);
             }
         }
     }

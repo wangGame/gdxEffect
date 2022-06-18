@@ -10,5 +10,6 @@ sourceSets.main.java.srcDirs = [
 dependencies{
     implementation 'com.crashinvaders.vfx:gdx-vfx-core:0.5.0'
     implementation 'com.crashinvaders.vfx:gdx-vfx-effects:0.5.0'
+    implementation "com.badlogicgames.gdx:gdx-freetype:1.9.8"
 //    api "com.github.crykn.guacamole:gdx:0.3.1"
 }
