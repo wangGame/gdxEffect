@@ -52,6 +52,7 @@ public class PerspectiveCamera extends Camera {
 
 	@Override
 	public void update (boolean updateFrustum) {
+		position.z = 0;
 		float aspect = viewportWidth / viewportHeight;
 		projection.setToProjection(Math.abs(near), Math.abs(far), fieldOfView, aspect);
 		view.setToLookAt(position, tmp.set(position).add(direction), up);

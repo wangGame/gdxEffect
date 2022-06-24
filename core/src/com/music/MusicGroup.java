@@ -45,10 +45,10 @@ public class MusicGroup extends Group {
 //        actions.add(action);
 //        RepeatAction forever = Actions.forever();
 
-        Action as = Actions.musicSequenceAction(
-                minusSound,midSound ,addSound
-        );
-        actions.add(as);
+//        Action as = Actions.musicSequenceAction(
+//                minusSound,midSound ,addSound
+//        );
+//        actions.add(as);
         CommonButton button = new CommonButton("button", -1, new CommonButton.MyRunnable() {
             @Override
             public void run(int index) {

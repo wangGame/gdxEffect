@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.FrameBuffer;
+import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Contact;
 import com.badlogic.gdx.scenes.scene2d.Group;
@@ -44,10 +45,19 @@ public class EarserTest extends Group {
         });
         addActor(brush);
         addActor(cachu);
+
+
     }
 
     private boolean isDraw;
+    float xx = 0;
     public void drawFrame(Batch batch){
+        xx = -Gdx.graphics.getDeltaTime()*10;
+        Matrix4 projectionMatrix = batch.getProjectionMatrix();
+        Matrix4 a = new Matrix4(projectionMatrix);
+
+        a.rotate(1,0,0,xx);
+        batch.setProjectionMatrix(a);
         if (isDraw) {
             return;
         }
@@ -57,6 +67,7 @@ public class EarserTest extends Group {
         cachu.draw(batch,1);
         batch.flush();
         frameBuffer.end();
+        batch.setProjectionMatrix(projectionMatrix);
     }
 
 

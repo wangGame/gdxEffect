@@ -4,6 +4,8 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.PerspectiveCamera;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.CpuPolygonSpriteBatch;
@@ -51,7 +53,9 @@ public class RiderGame extends Game {
     }
 
     private void initViewport() {
-        stageViewport = new ExtendViewport(Constant.WIDTH,Constant.HIGHT);
+        OrthographicCamera perspectiveCamera = new OrthographicCamera();
+        perspectiveCamera.position.set(0,0,2);
+        stageViewport = new ExtendViewport(Constant.WIDTH,Constant.HIGHT,perspectiveCamera);
     }
 
     @Override
